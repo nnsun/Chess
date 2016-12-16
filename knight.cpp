@@ -3,4 +3,5 @@
 Knight::Knight(bool white) {
     this->white = white;
     pieceID = 'N';
+    pieceName = "knight";
 }

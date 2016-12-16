@@ -3,5 +3,6 @@
 Pawn::Pawn(bool white) {
     this->white = white;
     pieceID = 'P';
+    pieceName = "pawn";
 }
 

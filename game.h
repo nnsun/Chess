@@ -6,14 +6,11 @@
 class Game {
 public:
     Game();
-    bool getPlayerTurn();
+    bool isWhiteTurn();
     void setPlayerTurn();
-    bool getPlayerChecked();
     Board* getBoard();
 private:
-    bool playerTurn;
-    bool whiteCheck;
-    bool blackCheck;
+    bool whiteTurn;
     Board* board;
 };
 

@@ -7,6 +7,8 @@
 class Board {
 public:
     Board();
+    Piece* getPieceAt(int);
+    void movePiece(int, int);
     string toString();
 private:
     Piece* board[64];

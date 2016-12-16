@@ -3,4 +3,5 @@
 Rook::Rook(bool white) {
     this->white = white;
     pieceID = 'R';
+    pieceName = "rook";
 }

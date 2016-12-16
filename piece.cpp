@@ -16,3 +16,7 @@ bool Piece::isActive() {
 char Piece::getPieceID() {
     return pieceID;
 }
+
+string Piece::getPieceName() {
+    return pieceName;
+}
