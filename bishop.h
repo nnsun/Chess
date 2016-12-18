@@ -6,6 +6,7 @@
 class Bishop : public Piece {
 public:
     Bishop(bool = true);
+	bool checkMove(int, int) override;	
 };
 
 

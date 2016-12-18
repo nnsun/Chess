@@ -19,6 +19,7 @@ class MainWindow : public QMainWindow {
 public:
     MainWindow(Game*);
     ~MainWindow();
+	void updateBoard(int, int, string, bool);
 
 private:
     Game* handler;
@@ -28,12 +29,9 @@ private:
     QVBoxLayout* box;
     QPushButton* buttons[8][8];
     QSignalMapper *signalMap[8][8];
-    int rowSelection;
-    int columnSelection;
-    Piece* currentPiece;
 
 private slots:
-    void buttonClicked(int );
+    void buttonClicked(int);
 };
 
 #endif // MAINWINDOW_H

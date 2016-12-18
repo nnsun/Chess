@@ -6,6 +6,7 @@
 class Pawn : public Piece {
 public:
     Pawn(bool = true);
+	bool checkMove(int, int) override;
 };
 
 

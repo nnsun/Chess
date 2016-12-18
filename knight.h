@@ -6,6 +6,7 @@
 class Knight : public Piece {
 public:
     Knight(bool = true);
+	bool checkMove(int, int) override;	
 };
 
 

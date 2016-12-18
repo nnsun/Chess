@@ -11,6 +11,7 @@ public:
     bool isActive();
     char getPieceID();
     string getPieceName();
+	virtual bool checkMove(int, int) = 0;
 protected:
     bool white;
     bool active;

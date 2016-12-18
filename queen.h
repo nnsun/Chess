@@ -6,6 +6,7 @@
 class Queen : public Piece {
 public:
     Queen(bool = true);
+	bool checkMove(int, int) override;	
 };
 
 

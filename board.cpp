@@ -46,6 +46,13 @@ void Board::movePiece(int prev, int next) {
     board[prev] = nullptr;
 }
 
+pair<int, int> Board::rowsColsAway(int oldTile, int newTile) {
+	int rowsAway = newTile / 8 - oldTile / 8;
+	int colsAway = newTile % 8 - oldTile % 8;
+	pair<int, int> rowColDiff = make_pair(rowsAway, colsAway);
+	return rowColDiff;
+}
+
 string Board::toString() {
     string boardStr = "";
     for (int i = 0; i < 64; i++) {

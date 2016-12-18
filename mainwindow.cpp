@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "Game.h"
+#include <QDebug>
 
 MainWindow::MainWindow(Game* game) :
     QMainWindow(0),
@@ -19,9 +20,6 @@ MainWindow::MainWindow(Game* game) :
     box->addLayout(grid);
 
     handler = game;
-    rowSelection = -1;
-    columnSelection = -1;
-    currentPiece = nullptr;
 
     for (int i = 0; i < 8; i++) {
         for (int j = 0; j < 8; j++) {
@@ -91,8 +89,8 @@ MainWindow::MainWindow(Game* game) :
 
             signalMap[i][j] = new QSignalMapper(this);
             connect(buttons[i][j], SIGNAL(clicked()), signalMap[i][j], SLOT(map()));
-            signalMap[i][j]->setMapping(buttons[i][j], i * 10 + j);
-            connect(signalMap[i][j], SIGNAL(mapped(int)), this, SLOT(buttonClicked(int)));
+			signalMap[i][j]->setMapping(buttons[i][j], i * 8 + j);
+			connect(signalMap[i][j], SIGNAL(mapped(int)), this, SLOT(buttonClicked(int)));
 
         }
     }
@@ -103,55 +101,41 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::buttonClicked(int pos) {
-    int row = pos / 10;
-    int column = pos % 10;
-    int tile = row * 8 + column;
+void MainWindow::buttonClicked(int tile) {
+	tuple<int, int, string, bool> redrawTuple = handler->handleMove(tile);
+	if (get<0>(redrawTuple) >= 0) {
+		updateBoard(get<0>(redrawTuple), get<1>(redrawTuple), get<2>(redrawTuple), get<3>(redrawTuple));		
+	}
+}
 
-    if (rowSelection == -1 && columnSelection == -1 && currentPiece == nullptr) {
-        if (handler->getBoard()->getPieceAt(tile) != nullptr) {
-            rowSelection = row;
-            columnSelection = column;
-        }
-        currentPiece = handler->getBoard()->getPieceAt(tile);
-    }
-    else {
-        handler->getBoard()->movePiece(rowSelection * 8 + columnSelection, tile);
-
-        string prevTileStyle = "";
-        string nextTileStyle = "";
-        if ((rowSelection + columnSelection) % 2 == 0) {
-            prevTileStyle += "background-color: white;";
-        }
-        else {
-            prevTileStyle += "background-color: gray;";
-        }
-
-        if ((row + column) % 2 == 0) {
-            nextTileStyle += "background-color: white;";
-        }
-        else {
-            nextTileStyle += "background-color: gray;";
-        }
-
-
-
-        nextTileStyle += "background-image: url(:/img/";
-        nextTileStyle += currentPiece->getPieceName() + "_";
-        if (currentPiece->isWhite()) {
-            nextTileStyle += "white.png);";
-        }
-        else {
-            nextTileStyle += "black.png);";
-        }
-
-        buttons[rowSelection][columnSelection]->setStyleSheet(QString::fromStdString(prevTileStyle));
-        buttons[row][column]->setStyleSheet(QString::fromStdString(nextTileStyle));
-
-        rowSelection = -1;
-        columnSelection = -1;
-
-        handler->setPlayerTurn();
-        currentPiece = nullptr;
-    }
+void MainWindow::updateBoard(int prevTile, int nextTile, string pieceName, bool white) {	
+	int prevRow = prevTile / 8;
+	int prevCol = prevTile % 8;
+	
+	int nextRow = nextTile / 8;
+	int nextCol = nextTile % 8;
+	
+	string prevTileStyle = "";
+	string nextTileStyle = "";
+	
+	if ((prevRow + prevCol) % 2 == 0) {
+		prevTileStyle += "background-color: white;";
+	}
+	else {
+		prevTileStyle += "background-color: gray;";
+	}
+	
+	if ((nextRow + nextCol) % 2 == 0) {
+		nextTileStyle += "background-color: white;";
+	}
+	else {
+		nextTileStyle += "background-color: gray;";
+	}
+	
+	nextTileStyle += "background-image: url(:/img/";
+	nextTileStyle += pieceName + "_";
+	nextTileStyle += white ? "white.png);" : "black.png);";
+	
+	buttons[prevRow][prevCol]->setStyleSheet(QString::fromStdString(prevTileStyle));
+	buttons[nextRow][nextCol]->setStyleSheet(QString::fromStdString(nextTileStyle));
 }
