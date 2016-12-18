@@ -7,8 +7,7 @@ Rook::Rook(bool white) {
     pieceName = "rook";
 }
 
-bool Rook::checkMove(int oldTile, int newTile) {
-	pair<int, int> distance = Board::rowsColsAway(oldTile, newTile);
+bool Rook::checkMove(pair<int, int> distance) {
 	if (distance.first == 0 || distance.second == 0) {
 		return true;
 	}

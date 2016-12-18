@@ -6,7 +6,7 @@
 class King : public Piece {
 public:
     King(bool = true);
-	bool checkMove(int, int) override;	
+	bool checkMove(pair<int, int>) override;
 };
 
 

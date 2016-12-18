@@ -2,11 +2,12 @@
 #define PAWN_H
 
 #include "Piece.h"
+#include "Board.h"
 
 class Pawn : public Piece {
 public:
     Pawn(bool = true);
-	bool checkMove(int, int) override;
+	bool checkMove(pair<int, int>) override;
 };
 
 

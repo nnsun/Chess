@@ -8,13 +8,11 @@ class Piece {
 public:
     Piece(bool = true);
     bool isWhite();
-    bool isActive();
     char getPieceID();
     string getPieceName();
-	virtual bool checkMove(int, int) = 0;
+	virtual bool checkMove(pair<int, int>) = 0;
 protected:
     bool white;
-    bool active;
     char pieceID;
     string pieceName;
 };

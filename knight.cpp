@@ -7,8 +7,7 @@ Knight::Knight(bool white) {
     pieceName = "knight";
 }
 
-bool Knight::checkMove(int oldTile, int newTile) {
-	pair<int, int> distance = Board::rowsColsAway(oldTile, newTile);
+bool Knight::checkMove(pair<int, int> distance) {
 	if ((abs(distance.first) == 2 && abs(distance.second) == 1) || 
 			(abs(distance.first) == 1 && abs(distance.second) == 2)) {
 		return true;

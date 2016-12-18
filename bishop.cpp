@@ -7,8 +7,7 @@ Bishop::Bishop(bool white) {
     pieceName = "bishop";
 }
 
-bool Bishop::checkMove(int oldTile, int newTile) {
-	pair<int, int> distance = Board::rowsColsAway(oldTile, newTile);
+bool Bishop::checkMove(pair<int, int> distance) {
 	if (abs(distance.first) == abs(distance.second)) {
 		return true;
 	}
