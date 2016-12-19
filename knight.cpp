@@ -1,5 +1,5 @@
-#include "Knight.h"
-#include "Board.h"
+#include "knight.h"
+#include "board.h"
 
 Knight::Knight(bool white) {
     this->white = white;

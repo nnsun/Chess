@@ -1,7 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "Game.h"
-#include <QDebug>
+#include "game.h"
 
 MainWindow::MainWindow(Game* game) :
     QMainWindow(0),

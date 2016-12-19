@@ -1,7 +1,7 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "Board.h"
+#include "board.h"
 #include <utility>
 using namespace std;
 

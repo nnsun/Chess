@@ -1,4 +1,4 @@
-#include "Pawn.h"
+#include "pawn.h"
 
 Pawn::Pawn(bool white) {
     this->white = white;

@@ -1,8 +1,7 @@
 #ifndef BOARD_H
 #define BOARD_H
 
-#include <string>
-#include "Piece.h"
+#include "piece.h"
 #include <utility>
 using namespace std;
 

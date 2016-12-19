@@ -1,4 +1,4 @@
-#include "Piece.h"
+#include "piece.h"
 
 Piece::Piece(bool white) {
     this->white = white;

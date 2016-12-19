@@ -1,5 +1,5 @@
-#include "King.h"
-#include "Board.h"
+#include "king.h"
+#include "board.h"
 
 King::King(bool white) {
     this->white = white;

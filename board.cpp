@@ -1,12 +1,11 @@
-#include <iostream>
 #include <algorithm>
-#include "Board.h"
-#include "Pawn.h"
-#include "Knight.h"
-#include "Bishop.h"
-#include "Rook.h"
-#include "Queen.h"
-#include "King.h"
+#include "board.h"
+#include "pawn.h"
+#include "knight.h"
+#include "bishop.h"
+#include "rook.h"
+#include "queen.h"
+#include "king.h"
 using namespace std;
 
 

@@ -1,5 +1,5 @@
-#include "Bishop.h"
-#include "Board.h"
+#include "bishop.h"
+#include "board.h"
 
 Bishop::Bishop(bool white) {
     this->white = white;

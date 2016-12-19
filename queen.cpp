@@ -1,5 +1,5 @@
-#include "Queen.h"
-#include "Board.h"
+#include "queen.h"
+#include "board.h"
 
 Queen::Queen(bool white) {
     this->white = white;

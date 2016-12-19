@@ -1,11 +1,10 @@
-#include "Game.h"
-#include <QDebug>
-#include "Pawn.h"
-#include "Knight.h"
-#include "Bishop.h"
-#include "Rook.h"
-#include "Queen.h"
-#include "King.h"
+#include "game.h"
+#include "pawn.h"
+#include "knight.h"
+#include "bishop.h"
+#include "rook.h"
+#include "queen.h"
+#include "king.h"
 #include "mainwindow.h"
 #include <typeinfo>
 

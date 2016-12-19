@@ -1,5 +1,5 @@
-#include "Rook.h"
-#include "Board.h"
+#include "rook.h"
+#include "board.h"
 
 Rook::Rook(bool white) {
     this->white = white;
