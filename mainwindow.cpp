@@ -9,6 +9,8 @@ MainWindow::MainWindow(Game* game) :
     ui->setupUi(this);
     this->setFixedSize(QSize(720, 540));
     QWidget::setWindowTitle("Qt Chess");
+	QIcon windowIcon(":img/rook_black.png");
+	QWidget::setWindowIcon(windowIcon);
 
     container = new QWidget(this);
     setCentralWidget(container);

@@ -1,5 +1,5 @@
 <RCC>
-    <qresource>
+    <qresource prefix="/">
         <file>img/pawn_white.png</file>
         <file>img/pawn_black.png</file>
         <file>img/knight_white.png</file>
