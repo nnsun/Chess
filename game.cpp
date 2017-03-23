@@ -54,28 +54,6 @@ tuple<int, int, string, bool> Game::handleMove(int nextTile) {
 }
 
 bool Game::isLegalMove(int prevTile, Piece* piece, int nextTile) {
-	char pieceID = piece->getPieceID();
-	switch (pieceID) {
-		case 'P':
-			static_cast<Pawn*>(piece);
-			break;
-		case 'N':
-			static_cast<Knight*>(piece);
-			break;
-		case 'B':
-			static_cast<Bishop*>(piece);
-			break;
-		case 'R':
-			static_cast<Rook*>(piece);
-			break;
-		case 'Q':
-			static_cast<Queen*>(piece);
-			break;
-		case 'K':
-			static_cast<King*>(piece);
-			break;
-	}
-
 	Piece* nextTilePiece = board->getPieceAt(nextTile);
 	if (nextTilePiece != nullptr && piece->isWhite() == nextTilePiece->isWhite()) {
 		return false;
